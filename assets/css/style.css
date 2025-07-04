@@ -68,6 +68,11 @@
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
+  /* New portfolio colors */
+  --portfolio-accent: hsl(200, 80%, 60%); /* Bright cyan for hover effects */
+  --portfolio-bg: hsl(220, 30%, 15%); /* Darker blue-gray for backgrounds */
+  --portfolio-text: hsl(200, 50%, 85%); /* Light cyan for text */
+  --portfolio-border: hsl(200, 60%, 40%); /* Medium cyan for borders */
 
   /**
    * typography
@@ -147,11 +152,11 @@ input, textarea {
 }
 
 ::selection {
-  background: var(--orange-yellow-crayola);
+  background: var(--portfolio-accent);
   color: var(--smoky-black);
 }
 
-:focus { outline-color: var(--orange-yellow-crayola); }
+:focus { outline-color: var(--portfolio-accent); }
 
 html { font-family: var(--ff-poppins); }
 
@@ -192,7 +197,7 @@ article {
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  color: var(--orange-yellow-crayola);
+  color: var(--portfolio-accent);
   box-shadow: var(--shadow-1);
   z-index: 1;
 }
@@ -255,7 +260,8 @@ article.active {
   border-radius: 3px;
 }
 
-.has-scrollbar::-webkit-scrollbar {
+.has-scrollbar::-webkit-scroll
+bar {
   width: 5px; /* for vertical scrollbar */
   height: 5px; /* for horizontal scrollbar */
 }
@@ -266,7 +272,7 @@ article.active {
 }
 
 .has-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--orange-yellow-crayola);
+  background: var(--portfolio-accent);
   border-radius: 5px;
 }
 
@@ -360,7 +366,7 @@ main {
   right: -15px;
   border-radius: 0 15px;
   font-size: 13px;
-  color: var(--orange-yellow-crayola);
+  color: var(--portfolio-accent);
   background: var(--border-gradient-onyx);
   padding: 10px;
   box-shadow: var(--shadow-2);
@@ -443,7 +449,6 @@ main {
   font-size: 18px;
 }
 
-
 .social-item .social-link:hover { color: var(--light-gray); }
 
 
@@ -485,7 +490,7 @@ main {
 .navbar-link:hover,
 .navbar-link:focus { color: var(--light-gray-70); }
 
-.navbar-link.active { color: var(--orange-yellow-crayola); }
+.navbar-link.active { color: var(--portfolio-accent); }
 
 
 
@@ -649,7 +654,9 @@ main {
   transition: var(--transition-1);
 }
 
-.overlay.active {
+.overlay.active
+
+ {
   opacity: 0.8;
   visibility: visible;
   pointer-events: all;
@@ -883,14 +890,14 @@ main {
 }
 
 .filter-select {
-  background: var(--eerie-black-2);
-  color: var(--light-gray);
+  background: var(--portfolio-bg);
+  color: var(--portfolio-text);
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid var(--jet);
+  border: 1px solid var(--portfolio-border);
   border-radius: 14px;
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
@@ -899,12 +906,12 @@ main {
 .filter-select.active .select-icon { transform: rotate(0.5turn); }
 
 .select-list {
-  background: var(--eerie-black-2);
+  background: var(--portfolio-bg);
   position: absolute;
   top: calc(100% + 6px);
   width: 100%;
   padding: 6px;
-  border: 1px solid var(--jet);
+  border: 1px solid var(--portfolio-border);
   border-radius: 14px;
   z-index: 2;
   opacity: 0;
@@ -920,8 +927,8 @@ main {
 }
 
 .select-item button {
-  background: var(--eerie-black-2);
-  color: var(--light-gray);
+  background: var(--portfolio-bg);
+  color: var(--portfolio-text);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   text-transform: capitalize;
@@ -930,7 +937,7 @@ main {
   border-radius: 8px;
 }
 
-.select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
+.select-item button:hover { background: var(--portfolio-accent); }
 
 .project-list {
   display: grid;
@@ -960,6 +967,7 @@ main {
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
+  border: 1px solid var(--portfolio-border);
 }
 
 .project-img::before {
@@ -974,13 +982,13 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
+.project-item > a:hover .project-img::before { background: hsla(200, 80%, 60%, 0.5); }
 
 .project-item-icon-box {
   --scale: 0.8;
 
-  background: var(--jet);
-  color: var(--orange-yellow-crayola);
+  background: var(--portfolio-bg);
+  color: var(--portfolio-accent);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1013,7 +1021,7 @@ main {
 .project-category { margin-left: 10px; }
 
 .project-title {
-  color: var(--white-2);
+  color: var(--portfolio-text);
   font-size: var(--fs-5);
   font-weight: var(--fw-400);
   text-transform: capitalize;
@@ -1021,7 +1029,7 @@ main {
 }
 
 .project-category {
-  color: var(--light-gray-70);
+  color: var(--portfolio-text);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
 }
@@ -1105,7 +1113,7 @@ main {
   transition: var(--transition-1);
 }
 
-.blog-post-item > a:hover .blog-item-title { color: var(--orange-yellow-crayola); }
+.blog-post-item > a:hover .blog-item-title { color: var(--portfolio-accent); }
 
 .blog-text {
   color: var(--light-gray);
@@ -1164,7 +1172,7 @@ main {
 
 .form-input::placeholder { font-weight: var(--fw-500); }
 
-.form-input:focus { border-color: var(--orange-yellow-crayola); }
+.form-input:focus { border-color: var(--portfolio-accent); }
 
 textarea.form-input {
   min-height: 100px;
@@ -1182,7 +1190,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   position: relative;
   width: 100%;
   background: var(--border-gradient-onyx);
-  color: var(--orange-yellow-crayola);
+  color: var(--portfolio-accent);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1601,8 +1609,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .article-title { padding-bottom: 20px; }
 
-  .filter-select-box { display: none; }
-
   .filter-list {
     display: flex;
     justify-content: flex-start;
@@ -1613,14 +1619,14 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .filter-item button {
-    color: var(--light-gray);
+    color: var(--portfolio-text);
     font-size: var(--fs-5);
     transition: var(--transition-1);
   }
 
-  .filter-item button:hover { color: var(--light-gray-70); }
+  .filter-item button:hover { color: var(--portfolio-accent); }
 
-  .filter-item button.active { color: var(--orange-yellow-crayola); }
+  .filter-item button.active { color: var(--portfolio-accent); }
 
   /* portfolio and blog grid */
 
